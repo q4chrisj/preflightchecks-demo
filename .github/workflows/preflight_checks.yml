@@ -1,4 +1,4 @@
-name: pull_request
+name: preflight_checks
 
 on:
   pull_request:
