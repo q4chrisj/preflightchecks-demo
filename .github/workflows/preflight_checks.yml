@@ -3,7 +3,7 @@ name: preflight_checks
 on:
   push:
     branches:
-      - main
+      - "main"
 
 concurrency:
   group: ${{ github.head_ref }}
