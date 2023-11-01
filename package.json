@@ -1,0 +1,27 @@
+{
+  "name": "preflightchecks-demo",
+  "version": "1.0.0",
+  "description": "Repository to demo the various use cases of preflight checks",
+  "main": "dist/App.js",
+  "scripts": {
+    "start": "tsc && node dist/App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q4chrisj/preflightchecks-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q4chrisj/preflightchecks-demo/issues"
+  },
+  "homepage": "https://github.com/q4chrisj/preflightchecks-demo#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
