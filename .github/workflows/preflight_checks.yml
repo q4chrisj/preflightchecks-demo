@@ -9,6 +9,10 @@ on:
 concurrency:
   group: ${{ github.head_ref }}
 
+env:
+  APP_NAME: "platform-studio-eds"
+  FILE_SEARCH_PATH: "./deploy/environment/com/q4inc/connect/platform/eds/demo/ssm.tf"
+
 jobs:
   parameter_checks:
     runs-on: ubuntu-22.04
@@ -19,9 +23,9 @@ jobs:
     environment:
       name: ${{ matrix.environments }}
     steps:
-      - uses: q4mobile/preflight-checks@v1.1.1
+      - uses: q4mobile/preflight-checks@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN}}
+          # token: ${{ secrets.GITHUB_TOKEN}}
           target_aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           target_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           app_name: ${{env.APP_NAME}}
