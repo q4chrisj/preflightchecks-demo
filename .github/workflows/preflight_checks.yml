@@ -11,7 +11,7 @@ concurrency:
 
 env:
   APP_NAME: "platform-studio-eds"
-  FILE_SEARCH_PATH: "./deploy/environment/com/q4inc/connect/platform/eds/demo/ssm.tf"
+  FILE_SEARCH_PATH: ".deploy/environment/com/q4inc/connect/platform/eds/demo/ssm.tf"
 
 jobs:
   parameter_checks:
