@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        environments: '["develop","stage","prod"]'
+        environments: [develop, stage, prod]
     environment:
       name: ${{ matrix.environments }}
     steps:
