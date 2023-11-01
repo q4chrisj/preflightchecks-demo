@@ -1,12 +1,13 @@
 name: preflight_checks
 
 on:
-  push:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
     branches:
       - main
 
-# concurrency:
-#   group: ${{ github.head_ref }}
+concurrency:
+  group: ${{ github.head_ref }}
 
 env:
   APP_NAME: "platform-studio-eds"
@@ -25,7 +26,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: q4mobile/preflight-checks@main
         with:
-          # token: ${{ secrets.GITHUB_TOKEN}}
           target_aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           target_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           app_name: ${{env.APP_NAME}}
