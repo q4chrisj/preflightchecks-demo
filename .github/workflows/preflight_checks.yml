@@ -1,0 +1,28 @@
+name: pull_request
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.head_ref }}
+
+jobs:
+  parameter_checks:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        environments: '["develop","stage","prod"]'
+    environment:
+      name: ${{ matrix.environments }}
+    steps:
+      - uses: q4mobile/preflight-checks@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN}}
+          target_aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          target_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          app_name: ${{env.APP_NAME}}
+          file_search_path: ${{env.FILE_SEARCH_PATH}}
