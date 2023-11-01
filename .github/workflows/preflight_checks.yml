@@ -3,10 +3,10 @@ name: preflight_checks
 on:
   push:
     branches:
-      - "main"
+      - main
 
-concurrency:
-  group: ${{ github.head_ref }}
+# concurrency:
+#   group: ${{ github.head_ref }}
 
 env:
   APP_NAME: "platform-studio-eds"
