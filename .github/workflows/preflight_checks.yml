@@ -22,6 +22,7 @@ jobs:
     environment:
       name: ${{ matrix.environments }}
     steps:
+      - uses: actions/checkout@v3
       - uses: q4mobile/preflight-checks@main
         with:
           # token: ${{ secrets.GITHUB_TOKEN}}
