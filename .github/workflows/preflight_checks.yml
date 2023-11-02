@@ -9,10 +9,6 @@ on:
 concurrency:
   group: ${{ github.head_ref }}
 
-env:
-  APP_NAME: "platform-studio-eds"
-  FILE_SEARCH_PATH: "./.deploy/environment/com/q4inc/connect/platform/eds/demo/ssm.tf"
-
 jobs:
   parameter_checks:
     runs-on: ubuntu-22.04
@@ -28,5 +24,5 @@ jobs:
         with:
           target_aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           target_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          app_name: ${{env.APP_NAME}}
-          file_search_path: ${{env.FILE_SEARCH_PATH}}
+          app_name: "platform-studio-eds"
+          file_search_path: "./.deploy/environment/com/q4inc/connect/platform/eds/demo/ssm.tf"
